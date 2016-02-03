@@ -1,0 +1,26 @@
+  GNU nano 2.4.1                                                                Datei: lol_dht22.patch                                                                                                                                         
+
+--- configure-old       2015-11-06 10:45:27.582278149 +0100
++++ configure   2015-11-06 10:45:53.281495134 +0100
+@@ -4065,9 +4065,9 @@
+ 
+ 
+ if test x$wiringpi_h_found != "xyes"; then :
+-  ac_fn_c_check_header_mongrel "$LINENO" "/usr/local/include/wiringPi.h" "ac_cv_header__usr_local_include_wiringPi_h" "$ac_includes_default"
++  ac_fn_c_check_header_mongrel "$LINENO" "/usr/include/wiringPi.h" "ac_cv_header__usr_local_include_wiringPi_h" "$ac_includes_default"
+ if test "x$ac_cv_header__usr_local_include_wiringPi_h" = xyes; then :
+-  CFLAGS="${CFLAGS} -I/usr/local/include"
++  CFLAGS="${CFLAGS} -I/usr/include"
+ else
+   as_fn_error $? "Fail to find wiringPi.h" "$LINENO" 5
+ 
+--- dht22.c-old 2015-11-06 10:55:08.594340100 +0100
++++ dht22.c     2015-11-06 10:55:24.933832131 +0100
+@@ -108,7 +108,7 @@
+     DHTPIN = atoi(argv[1]);
+    
+ 
+-  printf ("Raspberry Pi wiringPi DHT22 reader\nwww.lolware.net\n") ;
++  // printf ("Raspberry Pi wiringPi DHT22 reader\nwww.lolware.net\n") ;
+ 
+   lockfd = open_lockfile(LOCKFILE);
